@@ -1,0 +1,35 @@
+{
+  "name": "ts-type-cost-lens",
+  "displayName": "TS Type Cost Lens",
+  "description": "Measure TypeScript hover latency and type display size at the cursor.",
+  "version": "0.1.0",
+  "publisher": "ojizi111-netizen",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:tsTypeCostLens.measureTypeAtCursor"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tsTypeCostLens.measureTypeAtCursor",
+        "title": "TS Type Cost Lens: Measure Type At Cursor"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "node scripts/check.js",
+    "test": "node scripts/check.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0"
+  }
+}
+
