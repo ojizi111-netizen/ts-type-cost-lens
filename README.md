@@ -61,7 +61,25 @@ Run the CLI demo:
 npm run demo
 ```
 
-Expected output includes a static structural score for `fixtures/expensive-types.ts`.
+Example output:
+
+```text
+TS Type Cost Lens demo
+
+File: fixtures/expensive-types.ts
+Source length: 803 characters
+Structural score: 60
+Complexity label: high
+
+Signals:
+- conditionalTypes: 2
+- mappedTypes: 1
+- inferKeywords: 0
+- recursiveReferences: 2
+- tupleSpreads: 3
+- indexedAccesses: 9
+```
+The CLI demo estimates static type-structure cost. The VS Code command measures hover latency at the cursor.
 
 Open this folder in VS Code, then press `F5` to launch an Extension Development Host.
 
