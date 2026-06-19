@@ -55,6 +55,14 @@ Install dependencies:
 npm install
 ```
 
+Run the CLI demo:
+
+```bash
+npm run demo
+```
+
+Expected output includes a static structural score for `fixtures/expensive-types.ts`.
+
 Open this folder in VS Code, then press `F5` to launch an Extension Development Host.
 
 In the Extension Development Host:
@@ -72,4 +80,3 @@ To become a serious challenge submission, it should move beyond hover latency an
 ## License
 
 MIT
-

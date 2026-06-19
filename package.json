@@ -25,6 +25,7 @@
     ]
   },
   "scripts": {
+    "demo": "node scripts/demo.js",
     "lint": "node scripts/check.js",
     "test": "node scripts/check.js"
   },
@@ -32,4 +33,3 @@
     "@types/vscode": "^1.90.0"
   }
 }
-

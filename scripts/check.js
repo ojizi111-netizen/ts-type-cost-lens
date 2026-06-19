@@ -5,7 +5,9 @@ const requiredFiles = [
   "package.json",
   "README.md",
   "src/extension.js",
+  "src/typeCost.js",
   "scripts/check.js",
+  "scripts/demo.js",
   "fixtures/expensive-types.ts",
   "LICENSE",
   "submission-packet.md"
@@ -27,4 +29,3 @@ if (!packageJson.contributes || !Array.isArray(packageJson.contributes.commands)
 }
 
 console.log("TS Type Cost Lens starter files look OK.");
-

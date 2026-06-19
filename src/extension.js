@@ -1,4 +1,9 @@
 const vscode = require("vscode");
+const {
+  classifyTypeCost,
+  flattenHoverText,
+  truncate
+} = require("./typeCost");
 
 const SUPPORTED_LANGUAGES = new Set(["typescript", "typescriptreact"]);
 
@@ -74,48 +79,6 @@ function getOutputChannel() {
   return outputChannel;
 }
 
-function flattenHoverText(hovers) {
-  if (!Array.isArray(hovers)) {
-    return "";
-  }
-
-  return hovers
-    .flatMap((hover) => hover.contents || [])
-    .map((part) => {
-      if (typeof part === "string") {
-        return part;
-      }
-
-      if (part && typeof part.value === "string") {
-        return part.value;
-      }
-
-      return "";
-    })
-    .filter(Boolean)
-    .join("\n\n");
-}
-
-function classifyTypeCost(elapsedMs, textLength) {
-  if (elapsedMs >= 750 || textLength >= 5000) {
-    return "high";
-  }
-
-  if (elapsedMs >= 250 || textLength >= 1500) {
-    return "medium";
-  }
-
-  return "low";
-}
-
-function truncate(text, maxLength) {
-  if (text.length <= maxLength) {
-    return text;
-  }
-
-  return `${text.slice(0, maxLength)}\n... truncated ...`;
-}
-
 function deactivate() {}
 
 module.exports = {
@@ -127,4 +90,3 @@ module.exports = {
     truncate
   }
 };
-
