@@ -28,4 +28,24 @@ if (!packageJson.contributes || !Array.isArray(packageJson.contributes.commands)
   throw new Error("package.json must contribute at least one command");
 }
 
+const {
+  extractTypeAliases,
+  rankTypeAliases
+} = require("../src/typeCost");
+const fixture = fs.readFileSync(
+  path.join(__dirname, "..", "fixtures", "expensive-types.ts"),
+  "utf8"
+);
+const aliases = extractTypeAliases(fixture);
+
+if (aliases.length < 2) {
+  throw new Error("Expected fixture to include multiple type aliases");
+}
+
+const rankedAliases = rankTypeAliases(fixture);
+
+if (rankedAliases[0].score < rankedAliases[rankedAliases.length - 1].score) {
+  throw new Error("Type aliases should be sorted by descending score");
+}
+
 console.log("TS Type Cost Lens starter files look OK.");

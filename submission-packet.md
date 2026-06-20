@@ -32,6 +32,8 @@ npm run demo
 
 This reads `fixtures/expensive-types.ts` and reports a static structural complexity score, so the project can still be verified in Codespaces even when Extension Development Host debugging is unavailable.
 
+The demo now also ranks individual type aliases by estimated cost, which makes the artifact closer to the TSPerf challenge goal of identifying which type is expensive rather than only scoring the whole file.
+
 ## Honest Status
 
 This is an MVP, not a final prize-winning implementation.
@@ -56,7 +58,7 @@ It does not yet inspect TypeScript compiler internals or parse TypeScript server
 ## Improvement Plan
 
 1. Add code lenses for type aliases and interfaces.
-2. Scan all exported types in a file.
+2. Show the ranked type aliases inside a VS Code output panel.
 3. Use repeated measurements and report median latency.
 4. Add TypeScript server trace parsing.
 5. Add a side panel ranking expensive symbols.
